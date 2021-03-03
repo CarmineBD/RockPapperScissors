@@ -1,0 +1,177 @@
+:root{
+	font-family: helvetica;
+}
+
+div{
+	border: solid 1px #000;
+	width: 100px;
+	height: 100px;
+}
+
+img{
+	width: 100%;
+}
+
+body{
+	display: grid;
+	grid-template-columns: 20% auto;
+	background-color: #FEF9EF;
+
+
+}
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+figure figcaption{
+	font-size: 2vw;
+}
+
+aside{
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	height: 100%;
+	width: 20%;
+	grid-area: 1/1/4/2;
+	background-color: #36A9D3;
+}
+
+aside section:nth-of-type(1){
+	background-color: #227C9D;
+	display: flex;
+	align-items: center;
+	color: #eee;
+	min-height: 40px;
+	font-size: 1.2vw;
+}
+
+aside section:nth-of-type(1) h3{
+	margin: 5%;
+}
+
+aside section:nth-of-type(2){
+	margin: 5%;
+}
+
+
+aside section:nth-of-type(2){
+	font-style: italic;
+	font-size: 1.5vw;
+
+
+}
+
+aside label{
+
+}
+
+aside output{
+
+}
+
+aside button{
+	position: absolute;
+	background-color: #227C9D;
+	border: none;
+	border-radius: 7px;
+	font-size: 1.2vw;
+	padding: 10%;
+	bottom: 5%;
+	right: 25%;
+}
+
+
+
+main{
+	background-color: #FEF9EF;
+	grid-area: 1/2/4/5;
+	display: grid;
+	grid-template-areas: 20% 60% 20%;
+}
+
+main .usuario{
+
+	width: 50%;
+	text-align: center;
+}
+
+main section:nth-of-type(1){
+	display: flex;
+	justify-content: center;
+	grid-area: 1/1/2/2;
+}
+
+main section:nth-of-type(2){
+	grid-area: 1/3/2/4;
+	display: flex;
+	justify-content: center;
+
+
+}
+
+main section:nth-of-type(3){
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-area: 1/2/2/3;
+
+}
+
+main section:nth-of-type(3) figure:nth-of-type(1){
+	transform: rotateY(180deg);
+}
+
+main h1{
+	grid-area: 2/2/3/3;
+	text-align: center;
+	font-size: 3vw;
+}
+
+main section:nth-of-type(4){
+	margin-top: 10%;
+	grid-area: 3/1/4/4;
+}
+
+
+
+main section:nth-of-type(4){
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+
+}
+
+
+
+main section:nth-of-type(4) figure{
+	min-width: 50px; 
+	transition: 0.3s;
+	margin: 10px;
+}
+
+main section:nth-of-type(4) figure:nth-of-type(1){
+	background-color: #17C3B2;
+	border-radius: 100px;
+}
+
+
+main section:nth-of-type(4) figure:nth-of-type(2){
+	background-color: #FFCB77;
+	border-radius: 100px;
+}
+
+main section:nth-of-type(4) figure:nth-of-type(3){
+	background-color: #FE6D73;
+	border-radius: 100px;
+}
+
+main section:nth-of-type(4) figure:hover{
+	transform: scale(1.2);
+}
+
+
+
+

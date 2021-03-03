@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Piedra, papel o tijera</title>
+		<meta name="viewport" content="width=device=width,initial-scale=1.0"/>
+		<link rel="shortcut icon" href="img/logomini.png"/>
+		<meta name="description" content="Juega piedra, papel o tijera con la cpu."/>
+		<link rel="stylesheet" type="text/css" href="estilo.css"/>
+		<link rel="stylesheet" type="text/css" href="tablet.css" media="screen and (min-width: 501px) and (max-width: 1000px)"/>
+		<link rel="stylesheet" type="text/css" href="movil.css" media="screen and (max-width: 500px)"/>
+	</head>
+	<body>
+		<aside id="menu">
+
+			<section>
+				<h3>Piedra, papel o tijera</h3>
+			</section>
+			
+			<section>
+
+				<output id="jugadacpu"></output>
+				<output id="jugadausuario"></output>
+
+				<label>Jugadas: </label>
+				<output id="outjugadas"></output><br/>
+
+				<label>Victorias: </label>
+				<output id="outvictorias"></output><br/>
+
+				<label>Derrotas: </label>
+				<output id="outderrotas"></output><br/>
+
+				<label>Empates: </label>
+				<output id="outempates"></output><br/>
+
+			</section>
+
+			<button onclick="resetear()">Resetaear</button>
+			
+		</aside>
+		<main>
+			<section>
+				<figure class="usuario">
+					<img src="img/usuario.png" alt="imagen del usuario" title="Usuario 1">
+					<figcaption>User</figcaption>
+				</figure>
+			</section>
+			
+			<section>
+				<figure class="usuario">
+					<img src="img/usuario.png" alt="imagen del usuario" title="Usuario 1">
+					<figcaption>Bot</figcaption>
+				</figure>
+			</section>
+				
+
+			<section>
+
+				<figure>
+					<img src="img/.png" alt="" title="" id="outuser">
+				</figure>
+
+				<figure>
+					<img src="img/.png" alt="" title="" id="outcpu">
+				</figure>
+
+			</section>
+
+			<h1 id="outresul">Resultado...</h1>
+
+			<section>
+				<figure>
+					<img src="img/piedra.png" alt="Imagen de piedra" title="Piedra" onclick="jugada('piedra')" />					
+				</figure>
+
+				<figure>
+					<img src="img/papel.png" alt="Imagen de piedra" title="Papel" onclick="jugada('papel')" />					
+				</figure>
+
+				<figure>
+					<img src="img/tijera.png" alt="Imagen de piedra" title="Tijera" onclick="jugada('tijera')" />					
+				</figure>
+
+			</section>
+			
+
+
+
+
+		</main>
+
+		
+
+
+		<script type="text/javascript">
+
+			function jugadacpu(){
+				var resul = Math.floor(Math.random() * 3)
+				if (resul==0) {
+					resul = 'piedra'
+				}
+				if (resul==1) {
+					resul = 'papel'
+				}
+				if (resul==2) {
+					resul = 'tijera'
+				}
+				return resul;
+			}
+
+			var victorias ='';
+			var derrotas ='';
+			var empates ='';
+			var jugadas ='';
+
+			function jugada(user){
+				jugadas ++;
+				var	resul = '';
+				var cpu = jugadacpu();
+				
+				if (user==cpu) {
+					resul = 'Empate';
+					empates ++;
+					outresul.style.color = '#FFCB77';
+
+					
+				}else if (user=='piedra' && cpu=='tijera' || user=='papel' && cpu=='piedra' || user=='tijera' && cpu=='papel'){
+					resul = 'Ganaste';
+					victorias ++;
+					outresul.style.color = '#17C3B2';
+
+				}else{
+					resul = 'Perdiste';
+					derrotas ++;
+					outresul.style.color = '#FE6D73';
+				}
+
+
+				outvictorias.innerHTML = victorias;
+				outderrotas.innerHTML = derrotas;
+				outempates.innerHTML = empates;
+				outjugadas.innerHTML = jugadas;
+				outuser.src = 'img/'+user+'.png';
+				outcpu.src = 'img/'+cpu+'.png';
+				outuser.title = user;
+				outcpu.title = cpu;
+				outresul.innerHTML = resul;
+
+			}
+
+
+
+
+			function resetear(){
+
+				victorias = 0;
+				derrotas = 0;
+				empates = 0;
+				jugadas = 0;
+
+				outvictorias.innerHTML = victorias;
+				outderrotas.innerHTML = derrotas;
+				outempates.innerHTML = empates;
+				outjugadas.innerHTML = jugadas;
+
+				outuser.src = '';
+				outcpu.src = '';
+				outuser.title = '';
+				outcpu.title = '';
+				outresul.innerHTML = '';
+			}
+
+
+
+		</script>
+	</body>
+</html>
